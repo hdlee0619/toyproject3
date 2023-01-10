@@ -31,15 +31,73 @@
          * {
             font-family: "Gowun Dodum", sans-serif;
          }
+         body{
+             width: 100%;
+             height: 100vh;
+         }
+           header{
+        width: 100%;
+        height: 340px;
+
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://velog.velcdn.com/images/sylagape1231/post/f5355da9-b05f-4612-a9dd-04960f41d326/%EA%B7%B8%EB%A6%BC1.png');
+        background-position: center;
+        background-size: cover;
+
+        color: white;
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        }
+        .navbar{
+            position: relative;
+            top: 10px;
+        }
+
+           .mainbar{
+            width: 100%;
+            height: 40px;
+            color: white;
+            background-color: #0B2161;
+             display: flex;
+            justify-content: center;
+            flex-direction: row;
+
+            align-content: center;
+        }
+
+        .mainbar div{
+            display: flex;
+
+            text-align: center;
+
+        }
+        .mainbar div a{
+            padding: 0 16px;
+            color: #fff;
+            text-decoration: none;
+           font-size: 1.2rem;
+            cursor: pointer;
+            font-family: bold;
+            margin-top: 5px;
+        }
+        .mainbar div:hover{
+            transform: scale(1.15);
+            transition: all 0.2s ease;
+        }
+
 
          .mytitle {
-            margin-left: 30%;
+          te
             padding-top: 20px;
-            height: 100px;
+
          }
 
          .mypost {
             width: 95%;
+             height: 300px;
             max-width: 500px;
             margin: 20px auto 0px auto;
             padding: 20px;
@@ -112,16 +170,26 @@
    </head>
 
    <body>
-      <div class="menu">
-         <ul>
-            <li><a href="#" onclick="location.href='/'">홈</a></li>
-            <li><a class="active" href="#">블로그 등록</a></li>
-            <li><a href="#" onclick="location.href='/rank'">순위</a></li>
-         </ul>
+    <header>
+          <div class="navbar">
+              <h2>🧑🏻‍💻항해99 12기 TIL 등록하기!</h2>
+          </div>
+
+      </header>
+      <div class="mainbar">
+          <div> <a class="active" href="#">홈</a></li> </div>
+          <div> <a href="#" onclick="location.href='/post'">블로그 등록</a></div>
+          <div> <a href="#" onclick="location.href='/rank'">순위</a></div>
       </div>
+
+
+
       <div class="mytitle">
-         <h1>TIL</h1>
+         <h1>항해99 12기에 TIL</h1>
       </div>
+
+
+
       <div class="mypost" id="post-box">
          <div class="form-floating mb-3">
             <input
