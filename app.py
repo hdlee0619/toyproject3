@@ -44,7 +44,6 @@ def blog_post():
     
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-    
 
     soup = BeautifulSoup(data.text, 'html.parser')
     
@@ -66,6 +65,7 @@ def blog_post():
       title_receive = soup.select_one('meta[property="og:title"]')['content']
       img_receive = soup.select_one('meta[property="og:image"]')['content']
       desc_receive = soup.select_one('meta[property="og:description"]')['content']
+
 
     doc = {
         'name': name_receive,
@@ -90,4 +90,4 @@ def like():
     return jsonify({'msg': '좋아요 완료!'})
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5003, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
