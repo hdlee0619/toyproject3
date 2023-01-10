@@ -65,7 +65,6 @@ def blog_post():
     }
 
     db.til.insert_one(doc)
-    print("git test")
 
     return jsonify({'msg': '등록 완료!'})
 
