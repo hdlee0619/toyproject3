@@ -47,10 +47,15 @@ def blog_post():
     data = requests.get(vlog_url_receive, headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
-
-    title_receive = soup.select_one('meta[property="og:title"]')['content']
-    img_receive = soup.select_one('meta[property="og:image"]')['content']
-    desc_receive = soup.select_one('meta[property="og:description"]')['content']
+    
+    test = vlog_url_receive.split('.')
+    
+    if test[1] == 'naver':
+      return jsonify({'msg': '네이버는 지원하지 않습니다 😂'})
+    else:
+      title_receive = soup.select_one('meta[property="og:title"]')['content']
+      img_receive = soup.select_one('meta[property="og:image"]')['content']
+      desc_receive = soup.select_one('meta[property="og:description"]')['content']
 
     doc = {
         'name': name_receive,
