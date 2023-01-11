@@ -14,6 +14,11 @@
    flex-direction: row;
    justify-content: space-between;
 }
+
+.card {
+   box-shadow: 2px 3px 5px 0px;
+}
+
 .card-title {
    font-size: 17px;
 }
@@ -47,14 +52,30 @@
    }
    50% {
       color: red;
-      transform: scale(1);
+      transform: scale(1.2);
    }
    100% {
       color: rgb(237, 73, 86);
+   }
+}
+@keyframes cardAnimation {
+   0% {
+      transform: none;
+   }
+   50% {
+      transform: translateY(-10px);
+   }
+   100% {
+      transform: none;
    }
 }
 
 .post-info__button:hover {
    will-change: transform;
    animation: hearthBeat 1s linear infinite;
+}
+
+.card:hover {
+   will-change: transform;
+   animation: cardAnimation 1s ease-in-out;
 }
