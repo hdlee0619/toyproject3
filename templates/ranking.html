@@ -19,131 +19,14 @@
          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
          crossorigin="anonymous"
       ></script>
-
+      <link rel="stylesheet" href="static/css/style.css" />
       <title>TIL 순위</title>
 
       <link
          href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
          rel="stylesheet"
       />
-
-      <style>
-         * {
-            font-family: "Gowun Dodum", sans-serif;
-         }
-
-         .mytitle {
-            margin-left: 30%;
-            padding-top: 20px;
-            height: 100px;
-         }
-
-         .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 0px auto;
-            padding: 20px;
-            box-shadow: 0px 0px 3px 0px gray;
-         }
-
-         th {
-            width: 20px;
-         }
-
-         td {
-            vertical-align: center;
-         }
-
-         .like {
-            width: 70px;
-            text-align: center;
-         }
-
-         .menu > ul {
-            margin: 0;
-            padding: 0;
-            width: 20%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-         }
-
-         li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-         }
-
-         li a.active {
-            background-color: #555;
-            color: white;
-         }
-
-         li a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-         }
-         #vlog_link {
-            text-decoration: none;
-            color: rgb(32, 37, 42);
-         }
-      </style>
-      <script>
-         $(document).ready(function () {
-            listing();
-         });
-
-         function listing() {
-            $.ajax({
-               type: "GET",
-               url: "/ranking",
-               data: {},
-               success: function (response) {
-                  let rows = response["tils"];
-                  let rank = Array.from(Array(rows.length), () => new Array(3));
-                  for (let i = 0; i < rows.length; i++) {
-                     let like = rows[i]["like"];
-                     let name = rows[i]["name"];
-                     let address = rows[i]["vlog_url"];
-                     let title = rows[i]["title"];
-
-                     rank[i] = [like, name, address, title];
-                  }
-
-                  let sortedRank = rank.sort((a, b) => {
-                     if (a[0] === b[0]) {
-                        return a[1] < b[1] ? -1 : a[1] > b[0] ? 1 : 0;
-                     } else {
-                        return b[0] - a[0];
-                     }
-                  });
-
-                  let count = 0;
-                  for (let i = 0; i < sortedRank.length; i++) {
-                     count++;
-                     let like = sortedRank[i][0];
-                     let name = sortedRank[i][1];
-                     let address = sortedRank[i][2];
-                     let title = sortedRank[i][3];
-
-                     let temp_html = `
-                        <tr>
-                            <th scope="row">${count}</th>
-                            <td>${name}</td>
-                            <td ><a href='${address}' id="vlog_link">${title}</a></td>
-                            <td class="like">${like}</td>
-                        </tr>
-                        `;
-                     $("#rank").append(temp_html);
-                  }
-               },
-            });
-         }
-      </script>
    </head>
-
    <body>
       <div class="menu">
          <ul>
@@ -168,5 +51,6 @@
             <tbody id="rank"></tbody>
          </table>
       </div>
+      <script src="/static/js/ranking.js"></script>
    </body>
 </html>

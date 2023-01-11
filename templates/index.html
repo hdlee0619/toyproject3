@@ -19,115 +19,13 @@
          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
          crossorigin="anonymous"
       ></script>
-
+      <link rel="stylesheet" href="static/css/style.css" />
       <title>TIL 순위</title>
 
       <link
          href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
          rel="stylesheet"
       />
-
-      <style>
-         * {
-            font-family: "Gowun Dodum", sans-serif;
-         }
-
-         .mytitle {
-            margin-left: 30%;
-            padding-top: 20px;
-            height: 100px;
-         }
-
-         .menu > ul {
-            margin: 0;
-            padding: 0;
-            width: 20%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-         }
-
-         li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-         }
-
-         li a.active {
-            background-color: #555;
-            color: white;
-         }
-
-         li a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-         }
-
-         .mycards {
-            margin: 50px auto 0px auto;
-            width: 95%;
-            max-width: 1200px;
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-         }
-      </style>
-      <script>
-         $(document).ready(function () {
-            listing();
-         });
-
-         function listing() {
-            $.ajax({
-               type: "GET",
-               url: "/show",
-               data: {},
-               success: function (response) {
-                  let rows = response["tils"];
-                  for (let i = 0; i < rows.length; i++) {
-                     let name = rows[i]["name"];
-                     let address = rows[i]["vlog_url"];
-                     let num = rows[i]["num"];
-                     let like = rows[i]["like"];
-                     let comment5 = rows[i]["comment5"];
-
-                     let temp_html = `
-                        <div class="mycards">
-                            <div class="card" style="width: 18rem;">
-                                <img src="https://previews.123rf.com/images/julynx/julynx1408/julynx140800023/30746516-사용할-수-없거나-이미지-사진-없음.jpg"
-                                     class="card-img-top" alt="">
-                                <div class="card-body">
-                                    <h5 class="card-title">${name}</h5>
-                                    <p class="card-text">${address}</p>
-                                    <p class="card-text">${comment5}</p>
-                                    <button class="btn btn-primary" onclick="like(${num})" type="submit">Like</button>
-                                    <button class="btn btn-primary" type="submit">comment</button>
-                                </div>
-                            </div>
-                        </div>
-                        `;
-                     $("#blogs").append(temp_html);
-                  }
-               },
-            });
-         }
-
-         function like(num) {
-            $.ajax({
-               type: "POST",
-               url: "/like",
-               data: { num_give: num },
-               success: function (response) {
-                  alert(response["msg"]);
-                  window.location.reload();
-               },
-            });
-         }
-      </script>
    </head>
 
    <body>
@@ -143,4 +41,5 @@
       </div>
       <div class="cards" id="blogs"></div>
    </body>
+   <script src="/static/js/index.js"></script>
 </html>

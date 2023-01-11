@@ -1,0 +1,11 @@
+/* screens */
+@import "./screens/index.css";
+@import "./screens/ranking.css";
+@import "./screens/record.css";
+
+/* component */
+@import "./components/side_bar.css";
+
+* {
+   font-family: "Gowun Dodum", sans-serif;
+}
