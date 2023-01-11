@@ -11,27 +11,64 @@ function listing() {
          let rows = response["tils"];
          for (let i = 0; i < rows.length; i++) {
             let name = rows[i]["name"];
-            let address = rows[i]["vlog_url"];
-            let num = rows[i]["num"];
-            let like = rows[i]["like"];
+
             let comment5 = rows[i]["comment5"];
+            let img = rows[i]["img"];
+            let title = rows[i]["title"];
+            let desc = rows[i]["desc"];
+
+            // 글자 자르기
+            let title_result;
+            let desc_result;
+
+            if (title.length > 17) {
+               title_result = title.substr(0, 17) + " ...";
+            } else {
+               title_result = title;
+            }
+
+            if (desc.length > 100) {
+               desc_result = desc.substr(0, 97) + " ...";
+            } else {
+               desc_result = desc;
+            }
 
             let temp_html = `
-               <div class="mycards">
-                   <div class="card" style="width: 18rem;">
-                       <img src="https://previews.123rf.com/images/julynx/julynx1408/julynx140800023/30746516-사용할-수-없거나-이미지-사진-없음.jpg"
-                            class="card-img-top" alt="">
-                       <div class="card-body">
-                           <h5 class="card-title">${name}</h5>
-                           <p class="card-text">${address}</p>
-                           <p class="card-text">${comment5}</p>
-                           <button class="btn btn-primary" onclick="like(${num})" type="submit">Like</button>
-                           <button class="btn btn-primary" type="submit">comment</button>
-                       </div>
-                   </div>
+            <div class="col post-card">
+            <div class="card h-100">
+               <div class="post-card__img_container">
+               <img src="${img}" class="card-img-top post-img" />
                </div>
+               <div class="card-body">
+                  <h5 class="card-title">${title_result}</h5>
+                  <p class="card-text">
+                     ${desc_result}
+                  </p>
+               </div>
+               <div class="card-footer post-comment">
+                  <small class="text-muted post-comment__small"
+                     >${comment5}</small
+                  >
+               </div>
+               <div class="card-footer post-info">
+                  <div class="post-info__writer">
+                     <small class="text-muted">- by ${name}</small>
+                  </div>
+                  <div class="post-info__container">
+                     <div class="post-info__response">
+                        <span
+                           ><i class="fa-regular fa-heart fa-lg"></i
+                        ></span>
+                        <span
+                           ><i class="fa-regular fa-comment fa-lg"></i
+                        ></span>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
                `;
-            $("#blogs").append(temp_html);
+            $(".post-container").append(temp_html);
          }
       },
    });

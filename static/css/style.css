@@ -4,6 +4,7 @@
 
 /* component */
 @import "./components/side_bar.css";
+@import "./components/post_card.css";
 
 * {
    font-family: "Gowun Dodum", sans-serif;
@@ -24,4 +25,7 @@
    flex-direction: row;
    align-items: center;
    justify-content: center;
+}
+.container-custom {
+   padding-left: 17%;
 }
