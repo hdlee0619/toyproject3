@@ -18,6 +18,7 @@
          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
          crossorigin="anonymous"
       ></script>
+       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
 
       <title>TIL 순위</title>
 
@@ -53,34 +54,6 @@
             position: relative;
             top: 10px;
         }
-        .cards{
-            margin-top: 25px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-        }
-        .cardlist{
-            margin-left: 150px;
-            margin-top: 50px;
-        }
-
-
-
-
-        .WIL {
-            margin: 0 auto;
-            width: 40%;
-            margin-top: 20px;
-            text-align: center;
-
-            height: 500px;
-            margin: 10px;
-            background: #f1f3f5;
-            border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-        }
-
 
         .mainbar{
             width: 100%;
@@ -113,6 +86,74 @@
             transform: scale(1.15);
             transition: all 0.2s ease;
         }
+
+
+
+
+        .cards{
+            margin-top: 25px;
+            width: 100%;
+            margin: 0 auto;
+            display: flex;
+        }
+        .cardlist{
+            margin-left: 150px;
+            margin-top: 50px;
+        }
+
+
+
+
+        .side_menu{
+            position: fixed;
+            top: 150px;
+            left: 50px;
+
+            border-radius: 30px;
+            display: flex;
+            flex-direction:column ;
+            width: 4rem;
+            align-content: center;
+            padding: 0.5rem;
+            text-align: center;
+            z-index: 5;
+            background: #333;
+            opacity: 0;
+            transition: 0.3s ease-in-out;
+        }
+        .side_menu div{
+            pointer-events: revert;
+            width: 100%;
+            padding: 10px 10px;
+            border-radius: 25px;
+            margin-bottom: 10px;
+            background: #868e96;
+        }
+         .side_menu div i{
+             font-size: 1.3rem;
+             color: white;
+         }
+         .side_menu div i:hover{
+             transform: scale(1.4);
+             transition: all 0.2s ease;
+         }
+
+
+        .WIL {
+            margin: 0 auto;
+            width: 40%;
+            margin-top: 20px;
+            text-align: center;
+            height: 500px;
+            margin: 10px;
+            background: #f1f3f5;
+            border-radius: 10px;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+        }
+
+
+
 
 
 
@@ -168,6 +209,9 @@
             padding: 0 5px;
 
         }
+
+
+
       </style>
       <script>
          $(document).ready(function () {
@@ -222,7 +266,7 @@
 
                 else{
 
-
+                        // DB에서 값 가져오기
                      let temp_html = `
                            <div class="Newblog WIL">
                             <a href=${vlog_url} target="_blank">
@@ -261,6 +305,18 @@
                },
             });
          }
+
+
+        // scrollY 350 사이드메뉴바 보이게하기
+          $(window).on('scroll', function(){
+        if (window.scrollY > 350) {
+       $('.side_menu').css('opacity', '1');
+           }else if(window.scrollY < 350) {
+        $('.side_menu').css('opacity', '0');
+        }
+        });
+
+
       </script>
    </head>
 
@@ -270,14 +326,30 @@
           <div class="navbar">
               <h2>🧑🏻‍💻항해99 12기 TIL 등록하기!</h2>
           </div>
-{#
+
       </header>
       <div class="mainbar">
-          <div> <a class="active" href="#">홈</a></li> </div>
+          <div> <a href="#" onclick="location.href='/'">홈</a> </div>
           <div> <a href="#" onclick="location.href='/post'">블로그 등록</a></div>
           <div> <a href="#" onclick="location.href='/rank'">순위</a></div>
       </div>
 
+      <div class="side_menu">
+          <div>
+              <a class="active" href="#">
+              <i class="fa-solid fa-house"></i>
+          </a>
+          </div>
+          <div> <a href="#" onclick="location.href='/post'">
+              <i class="fa-solid fa-plus"></i>
+              </a>
+          </div>
+          <div>
+              <a href="#" onclick="location.href='/rank'">
+              <i class="fa-solid fa-ranking-star"></i>
+                  </a>
+          </div>
+      </div>
 
       <div class="cards container" >
           <div class="cardlist row" id="blogs">

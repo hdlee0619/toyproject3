@@ -22,12 +22,12 @@ def home():
 
 @app.route('/post')
 def post():
-    return render_template('index2.html')
+    return render_template('record.html')
 
 
 @app.route('/rank')
 def rank():
-    return render_template('index3.html')
+    return render_template('ranking.html')
 
 
 @app.route("/show", methods=["GET"])
@@ -85,4 +85,4 @@ def like():
 
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5003, debug=True)
+    app.run('0.0.0.0', port=5002, debug=True)

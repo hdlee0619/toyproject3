@@ -19,7 +19,7 @@
          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
          crossorigin="anonymous"
       ></script>
-
+               <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
       <title>TIL 순위</title>
 
       <link
@@ -33,7 +33,7 @@
          }
          body{
              width: 100%;
-             height: 100vh;
+             height: 1000px;
          }
            header{
         width: 100%;
@@ -59,8 +59,8 @@
            .mainbar{
             width: 100%;
             height: 40px;
-            color: white;
-            background-color: #0B2161;
+            color: black;
+            background-color:#ffd8a8;
              display: flex;
             justify-content: center;
             flex-direction: row;
@@ -76,7 +76,7 @@
         }
         .mainbar div a{
             padding: 0 16px;
-            color: #fff;
+            color: black;
             text-decoration: none;
            font-size: 1.2rem;
             cursor: pointer;
@@ -89,47 +89,31 @@
         }
 
 
+
+
+
+
          .mytitle {
-          te
-            padding-top: 20px;
+            padding-top: 30px;
+             padding-bottom: 30px;
+             text-align: center;
 
          }
 
          .mypost {
             width: 95%;
              height: 300px;
-            max-width: 500px;
+            max-width: 650px;
             margin: 20px auto 0px auto;
             padding: 20px;
             box-shadow: 0px 0px 3px 0px gray;
          }
 
-         .menu > ul {
-            margin: 0;
-            padding: 0;
-            width: 20%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-         }
 
-         li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-         }
 
-         li a.active {
-            background-color: #555;
-            color: white;
-         }
 
-         li a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-         }
+
+
 
          .mycards {
             margin: 50px auto 0px auto;
@@ -166,6 +150,8 @@
                },
             });
          }
+
+
       </script>
    </head>
 
@@ -177,15 +163,16 @@
 
       </header>
       <div class="mainbar">
-          <div> <a class="active" href="#">홈</a></li> </div>
+          <div> <a href="#" onclick="location.href='/'">홈</a> </div>
           <div> <a href="#" onclick="location.href='/post'">블로그 등록</a></div>
           <div> <a href="#" onclick="location.href='/rank'">순위</a></div>
       </div>
 
 
 
+
       <div class="mytitle">
-         <h1>항해99 12기에 TIL</h1>
+         <h1>블로그 등록하기</h1>
       </div>
 
 
@@ -225,5 +212,7 @@
             </button>
          </div>
       </div>
+
+
    </body>
 </html>
