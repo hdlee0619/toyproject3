@@ -36,14 +36,26 @@
 
    <body>
       <div class="menu">
-         <ul>
-            <li><a href="#" onclick="location.href='/'">홈</a></li>
-            <li><a class="active" href="#">블로그 등록</a></li>
-            <li><a href="#" onclick="location.href='/rank'">순위</a></li>
+         <ul class="menu-ul">
+            <li>
+               <a href="#" onclick="location.href='/'"
+                  >피 드 <i class="fa-solid fa-ship"></i
+               ></a>
+            </li>
+            <li>
+               <a href="#" class="active"
+                  >블로그 등록 <i class="fa-sharp fa-solid fa-anchor"></i
+               ></a>
+            </li>
+            <li>
+               <a href="#" onclick="location.href='/rank'"
+                  >순 위 <i class="fa-solid fa-ranking-star"></i
+               ></a>
+            </li>
          </ul>
       </div>
       <div class="mytitle">
-         <h1>TIL</h1>
+         <h1>✏️ 내 블로그 등록하기 ✏️</h1>
       </div>
       <div class="mypost" id="post-box">
          <div class="form-floating mb-3">
@@ -83,5 +95,9 @@
          </div>
       </div>
       <script src="../static/js/record.js"></script>
+      <script
+         src="https://kit.fontawesome.com/a7ffd79a17.js"
+         crossorigin="anonymous"
+      ></script>
    </body>
 </html>

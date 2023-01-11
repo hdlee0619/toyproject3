@@ -10,10 +10,19 @@
    font-family: "Gowun Dodum", sans-serif;
 }
 
+body {
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(white, RGB(64 137 210));
+   background-attachment: scroll;
+}
+
 .mytitle {
-   margin-left: 30%;
+   margin-left: 6%;
    padding-top: 20px;
    height: 100px;
+   text-align: center;
+   background-color: transparent;
 }
 
 .mycards {
