@@ -76,6 +76,15 @@
             text-decoration: none;
          }
 
+         h1 > a {
+             text-decoration: none;
+             color: #000;
+         }
+
+         h1 > a:hover {
+             color: black;
+         }
+
          li a.active {
             background-color: #555;
             color: white;
@@ -149,11 +158,11 @@
          <ul>
             <li><a href="#" onclick="location.href='/'">홈</a></li>
             <li><a href="#" onclick="location.href='/post'">블로그 등록</a></li>
-            <li><a class="active" href="#">순위</a></li>
+            <li><a class="active" href="#" onclick="location.href='/rank'">순위</a></li>
          </ul>
       </div>
       <div class="mytitle">
-         <h1>TIL 순위</h1>
+          <h1><a href="#" onclick="location.href='/'">TIL</a> 순위</h1>
       </div>
       <div class="mypost" id="post-box">
          <table class="table">
