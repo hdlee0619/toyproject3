@@ -29,3 +29,32 @@
    height: 70px;
    max-height: 70px;
 }
+
+.post-info__button {
+   background: inherit;
+   border: none;
+   box-shadow: none;
+   border-radius: 0;
+   padding: 0;
+   overflow: visible;
+   cursor: pointer;
+   color: rgb(237, 73, 86);
+}
+
+@keyframes hearthBeat {
+   0% {
+      color: rgb(237, 73, 86);
+   }
+   50% {
+      color: red;
+      transform: scale(1);
+   }
+   100% {
+      color: rgb(237, 73, 86);
+   }
+}
+
+.post-info__button:hover {
+   will-change: transform;
+   animation: hearthBeat 1s linear infinite;
+}

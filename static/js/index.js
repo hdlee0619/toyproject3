@@ -16,6 +16,8 @@ function listing() {
             let img = rows[i]["img"];
             let title = rows[i]["title"];
             let desc = rows[i]["desc"];
+            let like = rows[i]["like"];
+            let num = rows[i]["num"];
 
             // 글자 자르기
             let title_result;
@@ -59,11 +61,11 @@ function listing() {
                   </div>
                   <div class="post-info__container">
                      <div class="post-info__response">
+                        <button onClick="like(${num})" class="post-info__button"
+                           ><i class="fa-solid fa-heart fa-lg"></i></i
+                        ></button>
                         <span
-                           ><i class="fa-regular fa-heart fa-lg"></i
-                        ></span>
-                        <span
-                           ><i class="fa-regular fa-comment fa-lg"></i
+                           >${like}</i
                         ></span>
                      </div>
                   </div>
