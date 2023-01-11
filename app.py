@@ -27,6 +27,7 @@ def rank():
 @app.route("/show", methods=["GET"])
 def til_get():
     til_list = list(db.til.find({},{'_id':False}))
+    til_list.reverse()
     return jsonify({'tils': til_list})
 
 @app.route("/ranking", methods=["GET"])
