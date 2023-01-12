@@ -40,15 +40,15 @@ def blog_post():
     name_receive = request.form['name_give']
     vlog_url_receive = request.form['vlog_url_give']
     comment5_receive = request.form['comment5_give']
-    count = list(db.til.find({},{'_id':False}))
+    count = list(db.til.find({}, {'_id': False}))
     num = len(count) + 1
-    
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
     data = requests.get(vlog_url_receive, headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
-    
+
     test = vlog_url_receive.split('.')
     
     if test[1] == 'naver':
