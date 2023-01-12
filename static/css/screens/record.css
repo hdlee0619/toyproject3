@@ -30,3 +30,33 @@
 .mybtns{
    margin-top: 5px;
 }
+
+
+.showname{
+   color: #ff6b6b;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.2s ease;
+}
+.showurl{
+    color: #ff6b6b;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.2s ease;
+}
+
+
+.showcomment{
+   color: #ff6b6b;
+   opacity: 0;
+   visibility: hidden;
+   transition: all 0.2s ease;
+}
+
+
+
+
+.errorValue{
+   opacity: 1;
+   visibility: visible;
+}
