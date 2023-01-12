@@ -1,0 +1,31 @@
+.mytitle {
+   margin-left: 30%;
+   padding-top: 20px;
+   height: 100px;
+}
+
+.mypost {
+   width: 95%;
+   max-width: 500px;
+   margin: 20px auto 0px auto;
+   padding: 20px;
+   box-shadow: 0px 0px 3px 0px gray;
+}
+
+th {
+   width: 20px;
+}
+
+td {
+   vertical-align: center;
+}
+
+.like {
+   width: 70px;
+   text-align: center;
+}
+
+#vlog_link {
+   text-decoration: none;
+   color: rgb(32, 37, 42);
+}

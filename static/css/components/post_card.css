@@ -1,0 +1,80 @@
+/* post card */
+.post-card {
+   width: 300px;
+}
+
+.post-img {
+   width: 274px;
+   height: 170px;
+   object-fit: cover;
+}
+.post-info {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+
+.card {
+   box-shadow: 2px 3px 5px 0px;
+}
+
+.card-title {
+   font-size: 17px;
+}
+.card-text {
+   font-size: 12px;
+   height: 62px;
+}
+.post-info__response:last-child span {
+   margin: 5px;
+}
+
+.post-comment__small {
+   height: 70px;
+   max-height: 70px;
+}
+
+.post-info__button {
+   background: inherit;
+   border: none;
+   box-shadow: none;
+   border-radius: 0;
+   padding: 0;
+   overflow: visible;
+   cursor: pointer;
+   color: rgb(237, 73, 86);
+}
+
+@keyframes hearthBeat {
+   0% {
+      color: rgb(237, 73, 86);
+   }
+   50% {
+      color: red;
+      transform: scale(1.2);
+   }
+   100% {
+      color: rgb(237, 73, 86);
+   }
+}
+@keyframes cardAnimation {
+   0% {
+      transform: none;
+   }
+   50% {
+      transform: translateY(-10px);
+   }
+   100% {
+      transform: none;
+   }
+}
+
+.post-info__button:hover {
+   will-change: transform;
+   animation: hearthBeat 1s linear infinite;
+}
+
+.card:hover {
+   will-change: transform;
+   animation: cardAnimation 1s ease-in-out;
+}

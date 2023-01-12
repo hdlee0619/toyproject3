@@ -1,0 +1,49 @@
+/* screens */
+@import "./screens/ranking.css";
+@import "./screens/record.css";
+
+/* component */
+@import "./components/side_bar.css";
+@import "./components/post_card.css";
+
+* {
+   font-family: "Gowun Dodum", sans-serif;
+}
+
+body {
+   width: 100vw;
+   height: 100vh;
+   background: linear-gradient(white, RGB(64 137 210));
+   background-attachment: fixed;
+}
+
+.mytitle {
+   margin-left: 6%;
+   padding-top: 20px;
+   height: 100px;
+   text-align: center;
+   background-color: transparent;
+}
+
+.mycards {
+   margin: 50px auto 0px auto;
+   width: 95%;
+   max-width: 1200px;
+
+   display: flex;
+   flex-direction: row;
+   align-items: center;
+   justify-content: center;
+}
+.container-custom {
+   padding-left: 15%;
+}
+
+a {
+   text-decoration: none;
+   color: black;
+}
+
+a:hover {
+   color: black;
+}
