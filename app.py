@@ -24,6 +24,10 @@ def post():
 def rank():
     return render_template('ranking.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route("/show", methods=["GET"])
 def til_get():
     til_list = list(db.til.find({},{'_id':False}))
