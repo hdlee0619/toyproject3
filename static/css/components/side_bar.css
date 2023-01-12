@@ -1,7 +1,7 @@
 .menu > ul {
    margin: 0;
    padding: 0;
-   width: 10%;
+   width: 8%;
    background-color: transparent;
    position: fixed;
    height: 100%;
@@ -14,7 +14,7 @@
 
 li a {
    display: block;
-   padding: 20px 20px;
+   padding: 20px 25px 20px 15px;
    text-decoration: none;
    margin-top: 20px;
    text-align: right;

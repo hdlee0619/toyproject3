@@ -14,7 +14,7 @@ body {
    width: 100vw;
    height: 100vh;
    background: linear-gradient(white, RGB(64 137 210));
-   background-attachment: scroll;
+   background-attachment: fixed;
 }
 
 .mytitle {
