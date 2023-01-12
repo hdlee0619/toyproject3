@@ -1,0 +1,60 @@
+.menu > ul {
+   margin: 0;
+   padding: 0;
+   width: 8%;
+   background-color: transparent;
+   position: fixed;
+   height: 100%;
+   overflow: auto;
+}
+
+.menu-ul li:first-child {
+   margin-top: 110px;
+}
+
+li a {
+   display: block;
+   padding: 20px 25px 20px 15px;
+   text-decoration: none;
+   margin-top: 20px;
+   text-align: right;
+   border-radius: 0 15px 15px 0;
+}
+
+li a.active {
+   background: linear-gradient(to right, rgb(152, 104, 44), #e8c47e);
+   color: white;
+}
+li a:hover:not(.active) {
+   color: white;
+}
+li a:not(.active) {
+   background: linear-gradient(to right, rgb(152, 104, 44), #e8c47e);
+   color: black;
+}
+
+.menu-ul li:nth-child(2) {
+   animation-delay: 0.2s;
+}
+.menu-ul li:nth-child(3) {
+   animation-delay: 0.5s;
+}
+.menu-ul li:last-child {
+   animation-delay: 0.5s;
+}
+
+@keyframes appearBtnAnimation {
+   from {
+      opacity: 0;
+   }
+   to {
+      transform: none;
+      opacity: 1;
+   }
+}
+
+.menu-ul li {
+   transform: translateX(-50px);
+   animation: appearBtnAnimation 0.3s ease-in-out forwards;
+   opacity: 0;
+}
