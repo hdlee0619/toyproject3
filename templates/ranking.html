@@ -36,14 +36,26 @@
    </head>
    <body>
       <div class="menu">
-         <ul>
-            <li><a href="#" onclick="location.href='/'">홈</a></li>
-            <li><a href="#" onclick="location.href='/post'">블로그 등록</a></li>
-            <li><a class="active" href="#">순위</a></li>
+         <ul class="menu-ul">
+            <li>
+               <a href="#" onclick="location.href='/'"
+                  >피 드 <i class="fa-solid fa-ship"></i
+               ></a>
+            </li>
+            <li>
+               <a href="#" onclick="location.href='/post'"
+                  >블로그 등록 <i class="fa-sharp fa-solid fa-anchor"></i
+               ></a>
+            </li>
+            <li>
+               <a class="active" href="#" onclick="location.href='/rank'"
+                  >순 위 <i class="fa-solid fa-ranking-star"></i
+               ></a>
+            </li>
          </ul>
       </div>
       <div class="mytitle">
-         <h1>TIL 순위</h1>
+         <h1>⭐️ 블로그 순위 ⭐️</h1>
       </div>
       <div class="mypost" id="post-box">
          <table class="table">
@@ -59,5 +71,9 @@
          </table>
       </div>
       <script src="/static/js/ranking.js"></script>
+      <script
+         src="https://kit.fontawesome.com/a7ffd79a17.js"
+         crossorigin="anonymous"
+      ></script>
    </body>
 </html>

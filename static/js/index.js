@@ -23,21 +23,21 @@ function listing() {
             let title_result;
             let desc_result;
 
-            if (title.length > 17) {
-               title_result = title.substr(0, 17) + " ...";
+            if (title.length > 16) {
+               title_result = title.substr(0, 16) + "..";
             } else {
                title_result = title;
             }
 
-            if (desc.length > 100) {
-               desc_result = desc.substr(0, 97) + " ...";
+            if (desc.length > 97) {
+               desc_result = desc.substr(0, 97) + "...";
             } else {
                desc_result = desc;
             }
 
             let temp_html = `
             <div class="col post-card">
-            <div class="card h-100">
+            <div class="card h-200">
                <div class="post-card__img_container">
                <a href="${blog_url}" target="_brank">
                <img src="${img}" class="card-img-top post-img" /></a>
