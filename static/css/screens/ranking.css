@@ -26,12 +26,13 @@
 
         .hof-1{
             width: 35%;
-            height: 50%;
+            background: #e9ecef;
             margin: 0 auto;
             margin-bottom: 20px;
             margin-top: 10px;
             text-align: center;
             padding-top: 20px;
+            border-radius: 15px;
 
         }
 
