@@ -21,12 +21,14 @@ li a {
    border-radius: 0 15px 15px 0;
 }
 
-li a {
+li a.active {
    background: linear-gradient(to right, rgb(152, 104, 44), #e8c47e);
-   color: black;
+   color: white;
 }
-
 li a:hover:not(.active) {
+   color: white;
+}
+li a:not(.active) {
    background: linear-gradient(to right, rgb(152, 104, 44), #e8c47e);
    color: black;
 }
