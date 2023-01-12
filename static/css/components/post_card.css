@@ -1,0 +1,39 @@
+/* post card */
+.post-card {
+   width: 300px;
+   height: 380px;
+
+}
+
+
+
+
+.card:hover{
+             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+.post-img {
+   width: 274px;
+   height: 170px;
+   object-fit: cover;
+}
+.post-info {
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+}
+.card-title {
+   font-size: 17px;
+}
+.card-text {
+   font-size: 12px;
+   height: 62px;
+}
+.post-info__response:last-child span {
+   margin: 5px;
+}
+
+.post-comment__small {
+   height: 70px;
+   max-height: 70px;
+}

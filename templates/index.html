@@ -19,6 +19,12 @@
          crossorigin="anonymous"
       ></script>
        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!--index.css -->
+      <link rel="stylesheet" href="../static/css/style.css"/>
+        <!--post_card_css -->
+       <link rel="stylesheet" href="../static/css/components/post_card.css">
+       <!--side_menu_css -->
+       <link rel="stylesheet" href="../static/css/components/side_menu.css">
 
       <title>TIL 순위</title>
 
@@ -27,297 +33,6 @@
          rel="stylesheet"
       />
 
-      <style>
-          @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@300;400&family=Jua&family=Noto+Sans+KR:wght@100&family=Poppins:wght@300;400;500;600;700;800&display=swap');
-     body {
-          font-family: 'Poppins', sans-serif;
-            width: 100%;
-            height: 2000px
-        }
-        header{
-        width: 100%;
-        height: 340px;
-
-        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://velog.velcdn.com/images/bepyan/post/dbc4167e-fd31-4331-96e6-368e62a62179/shocked-face-surprised.gif');
-        background-position: center;
-        background-size: cover;
-
-        color: white;
-
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        }
-        .navbar{
-            position: relative;
-            top: 10px;
-        }
-
-        .mainbar{
-            width: 100%;
-            height: 40px;
-            color: white;
-            background-color: #0B2161;
-             display: flex;
-            justify-content: center;
-            flex-direction: row;
-
-            align-content: center;
-        }
-
-        .mainbar div{
-            display: flex;
-
-            text-align: center;
-
-        }
-        .mainbar div a{
-            padding: 0 16px;
-            color: #fff;
-            text-decoration: none;
-           font-size: 1.2rem;
-            cursor: pointer;
-            font-family: bold;
-            margin-top: 5px;
-        }
-        .mainbar div:hover{
-            transform: scale(1.15);
-            transition: all 0.2s ease;
-        }
-
-
-
-
-        .cards{
-            margin-top: 25px;
-            width: 100%;
-            margin: 0 auto;
-            display: flex;
-        }
-        .cardlist{
-            margin-left: 150px;
-            margin-top: 50px;
-        }
-
-
-
-
-        .side_menu{
-            position: fixed;
-            top: 150px;
-            left: 50px;
-
-            border-radius: 30px;
-            display: flex;
-            flex-direction:column ;
-            width: 4rem;
-            align-content: center;
-            padding: 0.5rem;
-            text-align: center;
-            z-index: 5;
-            background: #333;
-            opacity: 0;
-            transition: 0.3s ease-in-out;
-        }
-        .side_menu div{
-            pointer-events: revert;
-            width: 100%;
-            padding: 10px 10px;
-            border-radius: 25px;
-            margin-bottom: 10px;
-            background: #868e96;
-        }
-         .side_menu div i{
-             font-size: 1.3rem;
-             color: white;
-         }
-         .side_menu div i:hover{
-             transform: scale(1.4);
-             transition: all 0.2s ease;
-         }
-
-
-        .WIL {
-            margin: 0 auto;
-            width: 40%;
-            margin-top: 20px;
-            text-align: center;
-            height: 500px;
-            margin: 10px;
-            background: #f1f3f5;
-            border-radius: 10px;
-            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
-            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
-        }
-
-
-
-
-
-
-
-        .WIL:hover {
-            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
-        }
-
-        .img-size {
-            margin-top: 5px;
-            width: 300px;
-            height: 150px;
-
-        }
-
-        .WIL-title {
-
-            width: 100%;
-            height: 100px;
-        }
-
-        .WIL-text {
-
-            width: 100%;
-            height: 200px;
-        }
-
-        .WlL-list {
-            display: flex;
-            justify-content: space-around
-        }
-
-        .WlL-list button {
-            position: relative;
-            top: -8px;
-        }
-
-        .WIL-name {
-            font-size: 1.1rem;
-        }
-
-        .title_remove_list {
-            display: flex;
-
-        }
-
-        .title_remove_list h4 {
-            width: 80%;
-            margin: 0 auto;
-        }
-
-        .title_remove_list button {
-            padding: 0 5px;
-
-        }
-
-
-
-      </style>
-      <script>
-         $(document).ready(function () {
-            listing();
-         });
-
-         function listing() {
-            $.ajax({
-               type: "GET",
-               url: "/show",
-               data: {},
-               success: function (response) {
-                  let rows = response["tils"];
-                  console.log(rows)
-                  for (let i = 0; i < rows.length; i++) {
-                     let name = rows[i]["name"];
-                     let address = rows[i]["vlog_url"];
-                     let num = rows[i]["num"];
-                     let like = rows[i]["like"];
-                     let comment5 = rows[i]["comment5"];
-                      let title = rows[i]['title']
-                      let vlog_url = rows[i]['vlog_url']
-                      let img = rows[i]['img']
-                      let desc = rows[i]['desc']
-
-                    //글자수 350자 초과 시
-                      if (desc.length > 350) {
-                           let temp_html = `
-                           <div class="Newblog WIL">
-                            <a href=${vlog_url} target="_blank">
-                          <img src="${img}"
-                            alt="" class="img-size">
-                            </a>
-                        <div class="title_remove_list">
-                          <h4 class="WIL-title">${title}</h4>
-                            <button class="btn">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                         </div>
-
-                         <p class="WIL-text">
-                        🚨글자수 제한 🚨</br>
-                        이미지 클릭하면 글을 보실수 있습니다</p>
-                        <div class="WlL-list">
-                            <p class="WIL-name">${name}</p>
-                           <button class="btn " onclick="like(${num})">👍</button>
-                            <span>${like}</span>
-                    </div>
-                </div>`
-                            $("#blogs").append(temp_html);
-                      }
-
-                else{
-
-                        // DB에서 값 가져오기
-                     let temp_html = `
-                           <div class="Newblog WIL">
-                            <a href=${vlog_url} target="_blank">
-                          <img src="${img}"
-                            alt="" class="img-size">
-                            </a>
-                        <div class="title_remove_list">
-                          <h4 class="WIL-title">${title}</h4>
-                            <button class="btn">
-                                <i class="fa-solid fa-xmark"></i>
-                            </button>
-                         </div>
-
-                         <p class="WIL-text">${desc} </p>
-                        <div class="WlL-list">
-                            <p class="WIL-name">${name}</p>
-                           <button class="btn " onclick="like(${num})">👍</button>
-                            <span>${like}</span>
-                    </div>
-                </div>`
-                     $("#blogs").append(temp_html);
-                     }
-                  }
-               },
-            });
-         }
-
-         function like(num) {
-            $.ajax({
-               type: "POST",
-               url: "/like",
-               data: { num_give: num },
-               success: function (response) {
-                  alert(response["msg"]);
-                  window.location.reload();
-               },
-            });
-         }
-
-
-        // scrollY 350 사이드메뉴바 보이게하기
-          $(window).on('scroll', function(){
-        if (window.scrollY > 350) {
-       $('.side_menu').css('opacity', '1');
-           }else if(window.scrollY < 350) {
-        $('.side_menu').css('opacity', '0');
-        }
-        });
-
-
-      </script>
    </head>
 
    <body>
@@ -328,11 +43,7 @@
           </div>
 
       </header>
-      <div class="mainbar">
-          <div> <a href="#" onclick="location.href='/'">홈</a> </div>
-          <div> <a href="#" onclick="location.href='/post'">블로그 등록</a></div>
-          <div> <a href="#" onclick="location.href='/rank'">순위</a></div>
-      </div>
+
 
       <div class="side_menu">
           <div>
@@ -351,12 +62,14 @@
           </div>
       </div>
 
-      <div class="cards container" >
-          <div class="cardlist row" id="blogs">
+      <div class="container-custom mt-5">
+         <div class="row row-cols-1 row-cols-md-4 g-4 post-container">
 
 
 
-              </div>
+         </div>
       </div>
+
+         <script src="/static/js/index.js"></script>
    </body>
 </html>

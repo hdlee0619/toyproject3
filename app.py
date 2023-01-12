@@ -47,6 +47,7 @@ def blog_post():
     name_receive = request.form['name_give']
     vlog_url_receive = request.form['vlog_url_give']
     comment5_receive = request.form['comment5_give']
+    password_receive = request.form['password_give']
     count = list(db.til.find({}, {'_id': False}))
     num = len(count) + 1
 
@@ -68,20 +69,38 @@ def blog_post():
         'vlog_url': vlog_url_receive,
         'comment5': comment5_receive,
         'img': img_receive,
-        'desc': desc_receive
+        'desc': desc_receive,
+        'password': password_receive,
     }
 
     db.til.insert_one(doc)
-
     return jsonify({'msg': '등록 완료!'})
 
 
 @app.route("/like", methods=["POST"])
 def like():
     num_receive = request.form['num_give']
-
     db.til.update_one({'num': int(num_receive)}, {'$inc': {'like': 1}})
     return jsonify({'msg': '좋아요 완료!'})
+
+
+# 삭제구현
+# 디비를 찾고 삭제를 하고 비밀번호가 맞으면 삭제
+@app.route("/delete", methods=["POST"])
+def delete():
+    num_receive = request.form['num_give']
+    db.til.delete_one({'num': int(num_receive)}, )
+    return jsonify({'msg': '삭제 완료!'})
+
+
+@app.route("/checkdelete", methods=["POST"])
+def checkdelete():
+    password_receive = request.form['password_give']
+    num_receive = request.form['num_give']
+    db.til.delete_one({'num': int(num_receive)}, {'paasword': int(password_receive)} )
+    return jsonify({'msg': '전달완료!'})
+
+
 
 
 if __name__ == '__main__':

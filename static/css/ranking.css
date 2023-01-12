@@ -1,0 +1,149 @@
+  * {
+         font-family: "Gowun Dodum", sans-serif;
+      }
+      .mytitle {
+         margin-left: 30%;
+         padding-top: 20px;
+         height: 100px;
+      }
+      .mypost {
+         width: 95%;
+         max-width: 500px;
+         margin: 20px auto 0px auto;
+         padding: 20px;
+         box-shadow: 0px 0px 3px 0px gray;
+      }
+
+      th {
+         width: 20px;
+      }
+
+      td {
+         vertical-align: center;
+      }
+
+
+
+
+  header{
+        width: 100%;
+        height: 340px;
+        background-image: linear-gradient(0deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://i.pinimg.com/564x/65/49/40/654940cf7589fb38166ecb1c8114a2e9.jpg');
+        background-position: center;
+        background-size: cover;
+        color: white;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        }
+
+
+
+
+      .hof{
+       width: 90%;
+          height: 1000px;
+       margin: auto;
+     border: 10px solid;
+      border-image: linear-gradient(45deg, gold, deeppink) 1;
+    clip-path: inset(0px round 10px);
+    animation: huerotate 6s infinite linear;
+    filter: hue-rotate(360deg);
+}
+
+
+
+
+
+
+
+
+
+
+        .hof-1{
+            width: 35%;
+            height: 50%;
+            margin: 0 auto;
+            margin-bottom: 20px;
+            margin-top: 10px;
+            text-align: center;
+            padding-top: 20px;
+
+        }
+
+
+
+        .rank{
+            width: 100%;
+            height: 400px;
+
+              box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+             border-radius: 15px;
+        }
+        .rank:hover{
+             box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+
+
+
+        .rank img{
+            width: 100%;
+            height: 200px;
+            margin: 0 auto;
+            border-radius: 15px;
+        }
+        .rank h4{
+            padding-top: 15px;
+            width: 100%;
+          height: 25%;
+        }
+
+
+
+
+
+
+        /*  2,3 등 나누기*/
+        .hof-23{
+            width: 95%;
+            height: 50%;
+
+            margin: 0 auto;
+            display: flex;
+        }
+        /*  2,3 등 각각 나누기*/
+        .hof-23 .rank1{
+            width: 35%;
+            height: 400px;
+            margin: 0 auto;
+
+            text-align: center;
+             background: #e9ecef;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+            transition: all 0.3s cubic-bezier(.25, .8, .25, 1);
+            text-align: center;
+             border-radius: 15px;
+        }
+   .hof-23 .rank1:hover {
+            box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+        }
+   /* 이미지 사이즈 */
+   .hof-23 .rank1 img{
+       width: 100%;
+       height: 50%;
+        border-radius: 15px;
+   }
+   /* 이미지 사이즈 */
+      .hof-23 .rank1 h4{
+          padding-top: 15px;
+          width: 100%;
+          height: 25%;
+      }
+
+#vlog_link{
+            text-decoration: none;
+            color: rgb(32, 37, 42);
+         }
