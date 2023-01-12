@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8" />
+      <meta
+         name="viewport"
+         content="width=device-width, initial-scale=1, shrink-to-fit=no"
+      />
+
+      <link
+         rel="shortcut icon"
+         href="/static/img/favicon.ico"
+         type="image/x-icon"
+      />
+
+      <link
+         href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
+         rel="stylesheet"
+         integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
+         crossorigin="anonymous"
+      />
+      <script
+         src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+         integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+         crossorigin="anonymous"
+      ></script>
+
+        <link
+         href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
+         rel="stylesheet"
+        />
+
+        <title>로그인</title>
+
+        <style>
+        * {
+            font-family: "Gowun Dodum", sans-serif;
+         }
+        </style>
+
+       <script>function passWord() {
+           var testV = 1;
+           var pass1 = prompt('항해를 시작해볼까요?', '입력');
+           while (testV < 3) {
+               if (!pass1)
+                   history.go(-1);
+               if (pass1.toLowerCase() == "항해99") {
+                   location.href = '/post';
+
+
+                   break;
+               }
+               testV += 1;
+               var pass1 =
+                   prompt('힌트 : 지금 하고 있는 부트캠프', '입력');
+           }
+           if (pass1.toLowerCase() != "password" & testV == 3)
+               history.go(-1);
+           return " ";
+       }
+       </script>
+   </head>
+    <body>
+       <p>항해99</p>
+       <p><input type="button" value="코드스니펫 클릭 딸깍" onClick="passWord()"></p>
+    </body>
+</html>
