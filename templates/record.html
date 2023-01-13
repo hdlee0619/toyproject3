@@ -6,121 +6,61 @@
          name="viewport"
          content="width=device-width, initial-scale=1, shrink-to-fit=no"
       />
-
+      <!-- 파비콘 -->
+      <link
+         rel="shortcut icon"
+         href="/static/img/favicon.ico"
+         type="image/x-icon"
+      />
+      <!-- 부트스트랩 -->
       <link
          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
          rel="stylesheet"
          integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
          crossorigin="anonymous"
       />
-      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
       <script
          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
          integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
          crossorigin="anonymous"
       ></script>
 
-      <title>TIL 순위</title>
+      <!-- jquery -->
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
+      <!-- goggle font -->
       <link
          href="https://fonts.googleapis.com/css2?family=Gowun+Dodum&display=swap"
          rel="stylesheet"
       />
 
-      <style>
-         * {
-            font-family: "Gowun Dodum", sans-serif;
-         }
-
-         .mytitle {
-            margin-left: 30%;
-            padding-top: 20px;
-            height: 100px;
-         }
-
-         .mypost {
-            width: 95%;
-            max-width: 500px;
-            margin: 20px auto 0px auto;
-            padding: 20px;
-            box-shadow: 0px 0px 3px 0px gray;
-         }
-
-         .menu > ul {
-            margin: 0;
-            padding: 0;
-            width: 20%;
-            background-color: #f1f1f1;
-            position: fixed;
-            height: 100%;
-            overflow: auto;
-         }
-
-         li a {
-            display: block;
-            color: #000;
-            padding: 8px 16px;
-            text-decoration: none;
-         }
-
-         li a.active {
-            background-color: #555;
-            color: white;
-         }
-
-         li a:hover:not(.active) {
-            background-color: #555;
-            color: white;
-         }
-
-         .mycards {
-            margin: 50px auto 0px auto;
-            width: 95%;
-            max-width: 1200px;
-
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: center;
-         }
-
-         .comment5-box {
-            margin-top: 10px;
-         }
-      </style>
-      <script>
-         function posting() {
-            let name = $("#name").val();
-            let address = $("#address").val();
-            let comment5 = $("#comment5").val();
-
-            $.ajax({
-               type: "POST",
-               url: "/til",
-               data: {
-                  name_give: name,
-                  vlog_url_give: address,
-                  comment5_give: comment5,
-               },
-               success: function (response) {
-                  alert(response["msg"]);
-                  window.location.reload();
-               },
-            });
-         }
-      </script>
+      <!-- css -->
+      <link rel="stylesheet" href="static/css/style.css" />
+      <title>내 블로그 기록하기</title>
    </head>
 
    <body>
       <div class="menu">
-         <ul>
-            <li><a href="#" onclick="location.href='/'">홈</a></li>
-            <li><a class="active" href="#">블로그 등록</a></li>
-            <li><a href="#" onclick="location.href='/rank'">순위</a></li>
+         <ul class="menu-ul">
+            <li>
+               <a href="#" onclick="location.href='/'"
+                  >피 드 <i class="fa-solid fa-ship"></i
+               ></a>
+            </li>
+            <li>
+               <a href="#" class="active" onclick="location.href='/login'"
+                  >블로그등록 <i class="fa-sharp fa-solid fa-anchor"></i
+               ></a>
+            </li>
+            <li>
+               <a href="#" onclick="location.href='/rank'"
+                  >순 위 <i class="fa-solid fa-ranking-star"></i
+               ></a>
+            </li>
          </ul>
       </div>
       <div class="mytitle">
-         <h1>TIL</h1>
+         <h1>✏️ 내 블로그 등록하기 ✏️</h1>
       </div>
       <div class="mypost" id="post-box">
          <div class="form-floating mb-3">
@@ -129,16 +69,20 @@
                type="email"
                class="form-control"
                placeholder="name@example.com"
+               maxlength="10"
             />
             <label>작성자</label>
+             <p class="showname">작성자 이름을 알려주세요</p>
          </div>
          <div class="form-floating">
             <textarea
+               type="url"
                id="address"
                class="form-control"
                placeholder="Leave a comment here"
             ></textarea>
             <label for="floatingTextarea2">블로그 주소</label>
+            <p class="showurl">반드시 블로그 주소를 꼭 넣어주세요</p>
          </div>
          <div class="comment5-box">
             <div class="form-floating">
@@ -146,8 +90,10 @@
                   id="comment5"
                   class="form-control"
                   placeholder="Leave a comment here"
+                  maxlength="19"
                ></textarea>
                <label for="floatingTextarea2">간단한 설명글</label>
+                <p class="showcomment">설명글 넣어주세요</p>
             </div>
          </div>
 
@@ -157,5 +103,10 @@
             </button>
          </div>
       </div>
+      <script src="../static/js/record.js"></script>
+      <script
+         src="https://kit.fontawesome.com/a7ffd79a17.js"
+         crossorigin="anonymous"
+      ></script>
    </body>
 </html>

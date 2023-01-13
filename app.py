@@ -24,9 +24,14 @@ def post():
 def rank():
     return render_template('ranking.html')
 
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
 @app.route("/show", methods=["GET"])
 def til_get():
     til_list = list(db.til.find({},{'_id':False}))
+    til_list.reverse()
     return jsonify({'tils': til_list})
 
 @app.route("/ranking", methods=["GET"])
@@ -39,30 +44,20 @@ def blog_post():
     name_receive = request.form['name_give']
     vlog_url_receive = request.form['vlog_url_give']
     comment5_receive = request.form['comment5_give']
-    count = list(db.til.find({},{'_id':False}))
+    count = list(db.til.find({}, {'_id': False}))
     num = len(count) + 1
-    
+
     headers = {
         'User-Agent': 'Mozilla/5.0 (Windows NT 10.0; Win64; x64)AppleWebKit/537.36 (KHTML, like Gecko) Chrome/73.0.3683.86 Safari/537.36'}
-    
+    data = requests.get(vlog_url_receive, headers=headers)
 
     soup = BeautifulSoup(data.text, 'html.parser')
+
+    test = vlog_url_receive.split('.')
     
-    naver_url = vlog_url_receive
-
-    test = naver_url.split('.')
-
-    if test[1] == "naver":
-      naver_url_iframe = soup.select_one('iframe#mainFrame')['src']
-      naver_blog_url = "http://blog.naver.com" + naver_url_iframe
-      
-      data = requests.get(naver_blog_url, headers=headers)
-
-      title_receive = soup.select_one('meta[property="og:title"]')['content']
-      img_receive = soup.select_one('meta[property="og:image"]')['content']
-      desc_receive = soup.select_one('meta[property="og:description"]')['content']
+    if test[1] == 'naver':
+      return jsonify({'msg': '네이버는 지원하지 않습니다 😂'})
     else:
-      data = requests.get(vlog_url_receive, headers=headers)
       title_receive = soup.select_one('meta[property="og:title"]')['content']
       img_receive = soup.select_one('meta[property="og:image"]')['content']
       desc_receive = soup.select_one('meta[property="og:description"]')['content']
@@ -90,4 +85,4 @@ def like():
     return jsonify({'msg': '좋아요 완료!'})
 
 if __name__ == '__main__':
-    app.run('0.0.0.0', port=5003, debug=True)
+    app.run('0.0.0.0', port=5000, debug=True)
